@@ -1,0 +1,182 @@
+{
+  "rules": [
+    {
+      "name": "schema.backward-compatibility",
+      "description": "Schema changes must be backward compatible",
+      "severity": "error",
+      "category": "compatibility"
+    },
+    {
+      "name": "column.disallow-drop",
+      "description": "Dropping columns is not allowed without approval",
+      "severity": "error",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "column.disallow-drop-in-index",
+      "description": "Cannot drop columns that are part of an index",
+      "severity": "error",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "column.disallow-change-type",
+      "description": "Changing column data types is restricted",
+      "severity": "error",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "statement.add-column-without-position",
+      "description": "New columns should be added without specifying position",
+      "severity": "warning",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "statement.disallow-add-column-with-default",
+      "description": "Adding columns with default values can lock tables",
+      "severity": "warning",
+      "category": "ddl-safety",
+      "config": {
+        "engines": ["mysql", "mariadb"]
+      }
+    },
+    {
+      "name": "statement.disallow-add-not-null",
+      "description": "Adding NOT NULL columns to existing tables requires careful handling",
+      "severity": "warning",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "column.add-not-null-require-default",
+      "description": "Adding NOT NULL columns must include default value",
+      "severity": "error",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "statement.where.require.update-delete",
+      "description": "UPDATE and DELETE statements must have WHERE clause",
+      "severity": "error",
+      "category": "dml-safety"
+    },
+    {
+      "name": "statement.affected-row-limit",
+      "description": "DML statements should not affect too many rows",
+      "severity": "warning",
+      "category": "dml-safety",
+      "config": {
+        "maxRows": 10000
+      }
+    },
+    {
+      "name": "statement.dml-dry-run",
+      "description": "Large DML operations should be tested with dry run first",
+      "severity": "warning",
+      "category": "dml-safety"
+    },
+    {
+      "name": "index.create-concurrently",
+      "description": "Indexes should be created concurrently to avoid locking",
+      "severity": "warning",
+      "category": "performance",
+      "config": {
+        "engines": ["postgresql"]
+      }
+    },
+    {
+      "name": "statement.disallow-mix-in-ddl",
+      "description": "DDL and DML statements should not be mixed in same migration",
+      "severity": "warning",
+      "category": "migration-hygiene"
+    },
+    {
+      "name": "database.drop-empty-database",
+      "description": "Only empty databases can be dropped",
+      "severity": "error",
+      "category": "ddl-safety"
+    },
+    {
+      "name": "table.drop-naming-convention",
+      "description": "Only tables matching specific pattern can be dropped",
+      "severity": "warning",
+      "category": "ddl-safety",
+      "config": {
+        "pattern": "^_tmp_|^tmp_|_old$|_backup$"
+      }
+    },
+    {
+      "name": "statement.prior-backup-check",
+      "description": "Destructive operations require prior backup confirmation",
+      "severity": "warning",
+      "category": "data-safety"
+    },
+    {
+      "name": "statement.add-foreign-key-not-valid",
+      "description": "Foreign keys should be added with NOT VALID clause first",
+      "severity": "warning",
+      "category": "ddl-safety",
+      "config": {
+        "engines": ["postgresql"]
+      }
+    },
+    {
+      "name": "statement.add-check-not-valid",
+      "description": "Check constraints should be added with NOT VALID clause first",
+      "severity": "warning",
+      "category": "ddl-safety",
+      "config": {
+        "engines": ["postgresql"]
+      }
+    },
+    {
+      "name": "advice.online-migration",
+      "description": "Large table changes should use online migration tools",
+      "severity": "info",
+      "category": "performance",
+      "config": {
+        "tableRowThreshold": 1000000,
+        "tools": ["pt-online-schema-change", "gh-ost"]
+      }
+    },
+    {
+      "name": "statement.disallow-order-by",
+      "description": "ORDER BY in DML can cause performance issues",
+      "severity": "warning",
+      "category": "performance"
+    },
+    {
+      "name": "statement.disallow-limit",
+      "description": "LIMIT without ORDER BY can produce inconsistent results",
+      "severity": "warning",
+      "category": "dml-safety"
+    },
+    {
+      "name": "statement.select-full-table-scan",
+      "description": "Queries should avoid full table scans",
+      "severity": "warning",
+      "category": "performance"
+    },
+    {
+      "name": "statement.max-execution-time",
+      "description": "Long-running statements should have execution time limits",
+      "severity": "warning",
+      "category": "performance",
+      "config": {
+        "maxSeconds": 30
+      }
+    },
+    {
+      "name": "column.disallow-changing-order",
+      "description": "Column order changes can break applications",
+      "severity": "warning",
+      "category": "compatibility"
+    },
+    {
+      "name": "statement.non-transactional",
+      "description": "DDL statements may not be transactional",
+      "severity": "info",
+      "category": "migration-hygiene",
+      "config": {
+        "engines": ["mysql", "mariadb"]
+      }
+    }
+  ]
+}

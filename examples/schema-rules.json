@@ -1,0 +1,163 @@
+{
+  "rules": [
+    {
+      "name": "table.require-pk",
+      "description": "All tables must have a primary key defined",
+      "severity": "error",
+      "category": "table-structure"
+    },
+    {
+      "name": "naming.table",
+      "description": "Table names should follow naming convention (e.g., snake_case, plural)",
+      "severity": "warning",
+      "category": "naming-convention",
+      "config": {
+        "pattern": "^[a-z][a-z0-9_]*s$",
+        "example": "users, order_items"
+      }
+    },
+    {
+      "name": "naming.column",
+      "description": "Column names should be snake_case",
+      "severity": "warning",
+      "category": "naming-convention",
+      "config": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    },
+    {
+      "name": "naming.index.idx",
+      "description": "Index names should follow pattern: idx_<table>_<columns>",
+      "severity": "warning",
+      "category": "naming-convention",
+      "config": {
+        "pattern": "^idx_[a-z][a-z0-9_]*$"
+      }
+    },
+    {
+      "name": "naming.identifier.no-keyword",
+      "description": "Identifiers should not use SQL reserved keywords",
+      "severity": "error",
+      "category": "naming-convention"
+    },
+    {
+      "name": "column.require-default",
+      "description": "Columns should have default values where applicable",
+      "severity": "info",
+      "category": "column-definition"
+    },
+    {
+      "name": "column.no-null",
+      "description": "Columns should have NOT NULL constraint where applicable",
+      "severity": "warning",
+      "category": "column-definition",
+      "config": {
+        "exceptions": ["created_at", "updated_at", "deleted_at"]
+      }
+    },
+    {
+      "name": "column.maximum-varchar-length",
+      "description": "VARCHAR columns should not exceed maximum length",
+      "severity": "warning",
+      "category": "column-definition",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "name": "column.comment",
+      "description": "Columns should have descriptive comments",
+      "severity": "info",
+      "category": "documentation"
+    },
+    {
+      "name": "table.no-duplicate-index",
+      "description": "Tables should not have duplicate indexes",
+      "severity": "warning",
+      "category": "index-optimization"
+    },
+    {
+      "name": "index.key-number-limit",
+      "description": "Composite indexes should not have too many columns",
+      "severity": "warning",
+      "category": "index-optimization",
+      "config": {
+        "maxColumns": 5
+      }
+    },
+    {
+      "name": "index.pk-type-limit",
+      "description": "Primary key columns should use appropriate data types",
+      "severity": "error",
+      "category": "index-optimization",
+      "config": {
+        "allowedTypes": ["INT", "BIGINT", "UUID", "VARCHAR"]
+      }
+    },
+    {
+      "name": "table.require-charset",
+      "description": "Tables should specify character set",
+      "severity": "warning",
+      "category": "table-structure",
+      "config": {
+        "preferredCharset": "utf8mb4"
+      }
+    },
+    {
+      "name": "table.require-collation",
+      "description": "Tables should specify collation",
+      "severity": "warning",
+      "category": "table-structure",
+      "config": {
+        "preferredCollation": "utf8mb4_unicode_ci"
+      }
+    },
+    {
+      "name": "column.auto-increment-must-integer",
+      "description": "Auto-increment columns must be integer type",
+      "severity": "error",
+      "category": "column-definition"
+    },
+    {
+      "name": "column.auto-increment-must-unsigned",
+      "description": "Auto-increment columns should be unsigned",
+      "severity": "warning",
+      "category": "column-definition"
+    },
+    {
+      "name": "table.disallow-partition",
+      "description": "Table partitioning is not allowed without approval",
+      "severity": "warning",
+      "category": "table-structure"
+    },
+    {
+      "name": "system.comment.length",
+      "description": "Comments should not exceed maximum length",
+      "severity": "warning",
+      "category": "documentation",
+      "config": {
+        "maxLength": 1024
+      }
+    },
+    {
+      "name": "column.required",
+      "description": "Required columns must exist in tables",
+      "severity": "error",
+      "category": "column-definition",
+      "config": {
+        "requiredColumns": {
+          "all_tables": ["id", "created_at", "updated_at"]
+        }
+      }
+    },
+    {
+      "name": "index.total-number-limit",
+      "description": "Tables should not have too many indexes",
+      "severity": "warning",
+      "category": "index-optimization",
+      "config": {
+        "maxIndexes": 10
+      }
+    }
+  ]
+}

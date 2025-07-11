@@ -58,4 +58,30 @@ validate_schema(schemaPath: "/path/to/schema.json", rulesPath: "/path/to/rules.j
 
 ## Example Files
 
-See the `examples/` directory for sample schema and rules files.
+The `examples/` directory contains sample schemas and rule sets:
+
+### Schema Files
+- `schema.json` - Example JSON schema
+- `schema.sql` - Example SQL schema with tables and relationships
+
+### Rule Sets
+- `rules.json` - Basic JSON schema validation rules
+- `sql-rules.json` - General SQL best practices
+- `schema-rules.json` - Database schema structure and naming conventions (inspired by Bytebase)
+- `migration-rules.json` - Database migration safety and compatibility rules (inspired by Bytebase)
+
+### Rule Categories
+
+**Schema Rules** focus on:
+- Naming conventions (tables, columns, indexes)
+- Table structure requirements (primary keys, constraints)
+- Column definitions (types, defaults, nullability)
+- Index optimization
+- Documentation (comments)
+
+**Migration Rules** focus on:
+- Backward compatibility
+- DDL safety (avoiding table locks, data loss)
+- DML safety (WHERE clauses, row limits)
+- Performance considerations
+- Migration hygiene (separation of concerns)
