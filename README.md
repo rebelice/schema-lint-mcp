@@ -17,7 +17,7 @@ Add this to your Claude Code settings JSON file:
   "mcpServers": {
     "schema-lint": {
       "command": "node",
-      "args": ["/Users/rebeliceyang/Github/schema-lint-mcp/dist/index.js"],
+      "args": ["/path/to/schema-lint-mcp/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "your-anthropic-api-key-here",
         "GEMINI_API_KEY": "your-gemini-api-key-here"
@@ -34,7 +34,7 @@ Or use environment variables:
   "mcpServers": {
     "schema-lint": {
       "command": "node",
-      "args": ["/Users/rebeliceyang/Github/schema-lint-mcp/dist/index.js"],
+      "args": ["/path/to/schema-lint-mcp/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "${env:ANTHROPIC_API_KEY}",
         "GEMINI_API_KEY": "${env:GEMINI_API_KEY}"
