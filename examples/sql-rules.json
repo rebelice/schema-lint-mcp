@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "name": "primary-key-required",
+      "description": "All tables must have a primary key defined",
+      "severity": "error"
+    },
+    {
+      "name": "foreign-key-indexes",
+      "description": "All foreign key columns should have indexes",
+      "severity": "warning"
+    },
+    {
+      "name": "timestamp-columns",
+      "description": "Tables should have created_at and updated_at timestamp columns",
+      "severity": "info"
+    },
+    {
+      "name": "naming-convention",
+      "description": "Table names should be plural, column names should be snake_case",
+      "severity": "warning"
+    },
+    {
+      "name": "no-reserved-keywords",
+      "description": "Column names should not use SQL reserved keywords",
+      "severity": "error"
+    },
+    {
+      "name": "varchar-length",
+      "description": "VARCHAR columns should specify a maximum length",
+      "severity": "warning"
+    },
+    {
+      "name": "not-null-constraints",
+      "description": "Primary keys and foreign keys should have NOT NULL constraints",
+      "severity": "error"
+    },
+    {
+      "name": "default-values",
+      "description": "Columns should have appropriate default values where applicable",
+      "severity": "info"
+    }
+  ]
+}
