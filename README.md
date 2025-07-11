@@ -7,11 +7,6 @@ An MCP server that validates schema files against lint rules using Claude or Gem
 1. Clone this repository
 2. Install dependencies: `npm install`
 3. Build the project: `npm run build`
-4. Set up your API keys:
-   ```bash
-   cp .env.example .env
-   # Edit .env and add your ANTHROPIC_API_KEY and/or GEMINI_API_KEY
-   ```
 
 ## Configure with Claude Code
 
@@ -32,7 +27,7 @@ Add this to your Claude Code settings JSON file:
 }
 ```
 
-Or if you want to use the .env file:
+Or use environment variables:
 
 ```json
 {
